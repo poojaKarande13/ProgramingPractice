@@ -7,18 +7,17 @@ class Node(object):
       self.left  = None
       self.right = None
 
-def superBalancedBinaryTree(root):
+def balancedBinaryTree(root):
     if root == None:
         return 0
 
-    lheight = superBalancedBinaryTree(root.left)
-    rheight = superBalancedBinaryTree(root.right)
+    lheight = balancedBinaryTree(root.left)
+    rheight = balancedBinaryTree(root.right)
 
     if lheight != rheight or lheight == -1 or rheight == -1:
         return -1
     else:
         return lheight + 1
-
 
 root = Node(12)
 root.left = Node(10)
@@ -28,4 +27,4 @@ root.right = Node(20)
 root.right.left = Node(25)
 root.right.right = Node(40)
 
-print(superBalancedBinaryTree(root))
+print(balancedBinaryTree(root))

@@ -5,20 +5,20 @@ class Node:
         self.left = None
         self.right = None
 
-# def traverseLevel(root, level, visited):
-#     if root == None:
-#         return
-#
-#     if visited[0] < level:
-#         print(root.val)
-#         visited[0] = level
-#
-#     traverseLevel(root.left, level+1, visited)
-#     traverseLevel(root.right, level+1, visited)
-#
-# def leftView(root):
-#     visited = [0]
-#     traverseLevel(root, 1, visited)
+def traverseLevel(root, level, visited):
+    if root == None:
+        return
+
+    if visited[0] < level:
+        print(root.val)
+        visited[0] = level
+
+    traverseLevel(root.left, level+1, visited)
+    traverseLevel(root.right, level+1, visited)
+
+def leftView(root):
+    visited = [0]
+    traverseLevel(root, 1, visited)
 
 
 

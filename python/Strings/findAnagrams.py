@@ -1,3 +1,5 @@
+# Find position of all anagrams of p in s
+
 MAX = 256
 
 def findAnagrams(s, p):

@@ -20,30 +20,12 @@ Given an integer, convert it to a roman numeral. Input is guaranteed to be withi
 '''
 def mapping(t, string, num):
     map = {
-        1: ['I','V','X'],
-        2: ['X', 'L', 'C'],
-        3: ['C','D','M'],
-        4: ['M']
+        1: ['I','II','III','IV','V','VI','VII','VIII','IX','X'],
+        2: ['X','XX','XXX','XL', 'L', 'LX','LXX','LXXX','LC','C'],
+        3: ['C','CC','CCC','CD','D','DC','DCC','DCCC','DM','M'],
+        4: ['M', 'MM', 'MMM']
     }
-    print(num, t)
-    if num == 1:
-        string.append(map[t][0])
-    elif num == 2:
-        string.append(map[t][0] + map[t][0])
-    elif num == 3:
-        string.append(map[t][0] + map[t][0] + map[t][0])
-    elif num == 4:
-        string.append(map[t][0] + map[t][1])
-    elif num == 5:
-        string.append(map[t][1])
-    elif num == 6:
-        string.append(map[t][1] + map[t][0])
-    elif num == 7:
-        string.append(map[t][1] + map[t][0] + map[t][0])
-    elif num == 8:
-        string.append(map[t][1] + map[t][0] + map[t][0] + map[t][0])
-    elif num == 9:
-        string.append(map[t][0] + map[t][2])
+    string.append(map[t][num-1])
     return string
 
 def intToRoman(num):
@@ -54,7 +36,7 @@ def intToRoman(num):
     string = []
     while num > 0:
         if num >= 1000: #thousands
-            self.mapping(4, string, int(num/1000))
+            mapping(4, string, int(num/1000))
             num = num % 1000
         elif num >= 100: # hundreds
             mapping(3, string, int(num/100))
@@ -68,4 +50,4 @@ def intToRoman(num):
 
     return "".join(string)
 
-print(intToRoman(58))
+print(intToRoman(2000))

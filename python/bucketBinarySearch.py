@@ -31,9 +31,9 @@ def findNodeBSTWithSum(head, n):
         # search if head and n-head are the 2 nodes
         t = n - head.val
         if t > head.val
-            res = search(head.right,t)
+            res = searchBST(head.right,t)
         else
-            res = search(head.left,t)
+            res = searchBST(head.left,t)
         if res == True:
             return (head.val, t)
 
